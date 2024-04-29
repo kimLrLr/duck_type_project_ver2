@@ -43,7 +43,9 @@ const BtnWrap = styled.button`
   border: none;
   font-size: 22px;
   font-weight: 800;
-  background-color: #ffd800;
+  /* background-color: #ffd800; */
+  background-color: #fff;
+  border: 2px solid #ffd800;
   text-align: center;
   margin: 40px auto;
   transition: 0.5s;
@@ -55,7 +57,8 @@ const BtnWrap = styled.button`
   }
 
   &:hover {
-    opacity: 0.7;
+    /* opacity: 0.7; */
+    background-color: #ffd800;
   }
 `;
 
