@@ -31,8 +31,16 @@ const LoadWrap = styled.div`
 const TxtBox = styled.div`
   font-size: 14px;
   font-weight: 500;
-  color: #808080;
+  color: red;
   margin-bottom: 10px;
+
+  @keyframes blink-effect {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  animation: blink-effect 1s step-end infinite;
 `;
 
 const WrapSet = {
