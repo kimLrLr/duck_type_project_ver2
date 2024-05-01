@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { IMG_URL } from "../../constants";
 import { useEffect } from "react";
 
@@ -112,6 +112,10 @@ export const Result = () => {
     }
   }, []);
 
+  const restartHandler = () => {
+    window.location.replace("/");
+  };
+
   return (
     <Rwrap>
       <PageTitle titleName="결과페이지" />
@@ -128,9 +132,7 @@ export const Result = () => {
         >
           <BottomWrap>
             <DownText>결과 이미지를 꾹 눌러 저장!</DownText>
-            <BottomBtn>
-              <Link to="/">테스트 다시하기</Link>
-            </BottomBtn>
+            <BottomBtn onClick={restartHandler}>테스트 다시하기</BottomBtn>
             <BottomBtn onClick={onOpen}>MBTI별 오리 모음집</BottomBtn>
             <ChakraProvider>
               <Modal isOpen={isOpen} onClose={onClose}>
