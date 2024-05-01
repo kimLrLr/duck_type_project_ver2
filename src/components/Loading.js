@@ -128,6 +128,23 @@ export const Loading = ({ mbtiValue }) => {
 
   // console.log(mbtiDuck); //mbti 결과값(mbtiName에 있는 배열)
 
+  useEffect(() => {
+    (async () => {
+      try {
+        window.addEventListener("click", function () {});
+        const btnEl = document.querySelector(".result_btn");
+        setTimeout(() => {
+          btnEl.click();
+        }, 3000);
+      } catch (error) {
+        console.log("에러: " + error);
+      }
+      return () => {
+        window.removeEventListener("click", function () {});
+      };
+    })();
+  }, []);
+
   return (
     <>
       <Box {...WrapSet}>
@@ -152,7 +169,11 @@ export const Loading = ({ mbtiValue }) => {
 
             <TxtBox>눌러서 결과보기 &darr;</TxtBox>
             <BtnWrap>
-              <Link to={"/result"} state={{ name: mbtiDuck }}>
+              <Link
+                to={"/result"}
+                state={{ name: mbtiDuck }}
+                className="result_btn"
+              >
                 당신의 오리는...?
               </Link>
             </BtnWrap>
