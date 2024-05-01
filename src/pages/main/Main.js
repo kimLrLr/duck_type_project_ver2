@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { IMG_URL } from "../../constants";
 import { Link } from "react-router-dom";
 import { PageTitle } from "../../components/PageTitle";
+import { useEffect } from "react";
 
 const MainBox = styled.div`
   display: flex;
@@ -63,6 +64,12 @@ const BtnWrap = styled.button`
 `;
 
 export const Main = () => {
+  useEffect(() => {
+    if (!localStorage.getItem("refreshed")) {
+      localStorage.setItem("refreshed", true);
+      window.location.reload();
+    }
+  }, []);
   return (
     <>
       <PageTitle titleName="시작페이지" />

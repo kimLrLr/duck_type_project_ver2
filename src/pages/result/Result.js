@@ -16,6 +16,7 @@ import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
 import { IMG_URL } from "../../constants";
+import { useEffect } from "react";
 
 const Rwrap = styled.div`
   background-color: #f1f1f1;
@@ -103,6 +104,13 @@ export const Result = () => {
 
   const mbtiDuck = useLocation();
   const mbtiResult = mbtiDuck.state.name;
+
+  useEffect(() => {
+    if (!localStorage.getItem("refreshed")) {
+      localStorage.setItem("refreshed", true);
+      window.location.reload();
+    }
+  }, []);
 
   return (
     <Rwrap>
