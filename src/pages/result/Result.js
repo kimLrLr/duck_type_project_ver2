@@ -15,7 +15,6 @@ import {
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
-import { IMG_URL, SIMG_URL } from "../../constants";
 import { useEffect } from "react";
 import { mbtiName } from "../../components/mbtiName";
 
@@ -40,10 +39,10 @@ const DuckImg = styled.div`
 `;
 
 const MbtiDuckImg = styled.div`
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(4, 1fr);
   column-gap: 20px;
-  row-gap: 20px;
+  row-gap: 20px; */
 
   /* max-width: 450px;
   width: 100%;
@@ -53,7 +52,12 @@ const MbtiDuckImg = styled.div`
 `;
 const Con = styled.div``;
 
-const MDuckImgWrap = styled.div``;
+const MDuckImgWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+`;
 const MDuckImg = styled.div`
   img {
     border-radius: 50%;
