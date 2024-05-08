@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { mbtiName } from "../../components/mbtiName";
 
@@ -168,10 +168,12 @@ export const Result = () => {
                       <Con>
                         <MDuckImgWrap>
                           {mbtiName.map((data, index) => (
-                            <MDuckImg key={index}>
-                              <img src={data.simg} alt="오리이미지" />
-                              <MDuckName key={index}>{data.mbti}</MDuckName>
-                            </MDuckImg>
+                            <Link to={data.img}>
+                              <MDuckImg key={index}>
+                                <img src={data.simg} alt="오리이미지" />
+                                <MDuckName key={index}>{data.mbti}</MDuckName>
+                              </MDuckImg>
+                            </Link>
                           ))}
                         </MDuckImgWrap>
 

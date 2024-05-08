@@ -69,7 +69,9 @@ const Answer = styled.button`
   width: 100%;
   font-size: 20px;
   font-weight: 600;
-  background-color: #ffd800;
+  border: 2px solid #ffd800;
+  background-color: #fff;
+  /* background-color: #ffd800; */
   text-align: center;
   transition: 0.5s;
   box-sizing: border-box;
@@ -86,7 +88,7 @@ const Answer = styled.button`
   }
 
   &:hover {
-    opacity: 0.7;
+    background-color: #ffd800;
   }
 `;
 
