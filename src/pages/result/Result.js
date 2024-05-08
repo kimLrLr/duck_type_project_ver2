@@ -15,7 +15,7 @@ import {
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { mbtiName } from "../../components/mbtiName";
 
 const Rwrap = styled.div`
@@ -123,6 +123,13 @@ const PopClose = {
 };
 
 export const Result = () => {
+  const scrollTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const mbtiDuck = useLocation();
@@ -133,6 +140,11 @@ export const Result = () => {
       localStorage.setItem("refreshed", true);
       window.location.reload();
     }
+
+    window.addEventListener("scroll", onClose);
+    return () => {
+      window.removeEventListener("scroll", onClose);
+    };
   }, []);
 
   const restartHandler = () => {
@@ -168,7 +180,10 @@ export const Result = () => {
                       <Con>
                         <MDuckImgWrap>
                           {mbtiName.map((data, index) => (
-                            <MDuckImg key={index}>
+                            <MDuckImg
+                              key={index}
+                              onClick={onClose && scrollTop}
+                            >
                               <Link to={"/result"} state={{ name: data }}>
                                 <img src={data.simg} alt="오리이미지" />
                                 <MDuckName>{data.mbti}</MDuckName>
