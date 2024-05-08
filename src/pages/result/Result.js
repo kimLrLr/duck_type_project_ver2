@@ -14,9 +14,9 @@ import {
 } from "@chakra-ui/react";
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
-import { useLocation } from "react-router-dom";
-import { IMG_URL } from "../../constants";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { mbtiName } from "../../components/mbtiName";
 
 const Rwrap = styled.div`
   background-color: #f1f1f1;
@@ -39,11 +39,34 @@ const DuckImg = styled.div`
 `;
 
 const MbtiDuckImg = styled.div`
-  max-width: 450px;
+  /* display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 20px; */
+
+  /* max-width: 450px;
   width: 100%;
   img {
     width: 100%;
+  } */
+`;
+const Con = styled.div``;
+
+const MDuckImgWrap = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 20px;
+  row-gap: 20px;
+`;
+const MDuckImg = styled.div`
+  img {
+    border-radius: 50%;
+    overflow: hidden;
   }
+`;
+const MDuckName = styled.h4`
+  font-weight: 600;
+  text-align: center;
 `;
 
 const BottomWrap = styled.div`
@@ -142,10 +165,43 @@ export const Result = () => {
                   <ModalCloseButton />
                   <ModalBody>
                     <MbtiDuckImg>
-                      <img
+                      <Con>
+                        <MDuckImgWrap>
+                          {mbtiName.map((data, index) => (
+                            <Link to={data.img}>
+                              <MDuckImg key={index}>
+                                <img src={data.simg} alt="오리이미지" />
+                                <MDuckName key={index}>{data.mbti}</MDuckName>
+                              </MDuckImg>
+                            </Link>
+                          ))}
+                        </MDuckImgWrap>
+
+                        {/* <MDuckNameWrap>
+                          {mbtiName.map((data, index) => (
+                            <MDuckName key={index}>{data.mbti}</MDuckName>
+                          ))}
+                        </MDuckNameWrap> */}
+                      </Con>
+                      {/* {mbtiName.map((data) => (
+                        <Con key={data.id}>
+                          <MDuckImgWrap>
+                            {data.simg.map((simgdata, simgindex) => (
+                              <MDuckImg key={simgindex}>{simgdata}</MDuckImg>
+                            ))}
+                          </MDuckImgWrap>
+                          <MDuckNameWrap>
+                            {data.mbti.map((mbtidata, mbtiindex) => (
+                              <MDuckImg key={mbtiindex}>{mbtidata}</MDuckImg>
+                            ))}
+                          </MDuckNameWrap>
+                        </Con>
+                      ))} */}
+
+                      {/* <img
                         src={IMG_URL + "/img/mbti_duck_img.png"}
                         alt="mbti별 오리"
-                      />
+                      /> */}
                     </MbtiDuckImg>
                   </ModalBody>
                   <ModalFooter>

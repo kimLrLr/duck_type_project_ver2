@@ -63,7 +63,9 @@ const BtnWrap = styled.button`
   border-radius: 40px;
   font-size: 22px;
   font-weight: 700;
-  background-color: #ffd800;
+  border: 2px solid #ffd800;
+  background-color: #fff;
+  /* background-color: #ffd800; */
   text-align: center;
   transition: 0.5s;
   font-family: "Noto Sans KR", sans-serif;
@@ -74,7 +76,7 @@ const BtnWrap = styled.button`
   }
 
   &:hover {
-    opacity: 0.7;
+    background-color: #ffd800;
   }
 `;
 
