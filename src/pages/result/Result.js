@@ -15,7 +15,7 @@ import {
 import { PageTitle } from "../../components/PageTitle";
 import styled from "styled-components";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { mbtiName } from "../../components/mbtiName";
 
 const Rwrap = styled.div`
@@ -123,6 +123,13 @@ const PopClose = {
 };
 
 export const Result = () => {
+  const scrollTop = () => {
+    window.scroll({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const mbtiDuck = useLocation();
@@ -133,6 +140,11 @@ export const Result = () => {
       localStorage.setItem("refreshed", true);
       window.location.reload();
     }
+
+    window.addEventListener("scroll", onClose);
+    return () => {
+      window.removeEventListener("scroll", onClose);
+    };
   }, []);
 
   const restartHandler = () => {
@@ -168,40 +180,18 @@ export const Result = () => {
                       <Con>
                         <MDuckImgWrap>
                           {mbtiName.map((data, index) => (
-                            <Link to={data.img}>
-                              <MDuckImg key={index}>
+                            <MDuckImg
+                              key={index}
+                              onClick={onClose && scrollTop}
+                            >
+                              <Link to={"/result"} state={{ name: data }}>
                                 <img src={data.simg} alt="오리이미지" />
-                                <MDuckName key={index}>{data.mbti}</MDuckName>
-                              </MDuckImg>
-                            </Link>
+                                <MDuckName>{data.mbti}</MDuckName>
+                              </Link>
+                            </MDuckImg>
                           ))}
                         </MDuckImgWrap>
-
-                        {/* <MDuckNameWrap>
-                          {mbtiName.map((data, index) => (
-                            <MDuckName key={index}>{data.mbti}</MDuckName>
-                          ))}
-                        </MDuckNameWrap> */}
                       </Con>
-                      {/* {mbtiName.map((data) => (
-                        <Con key={data.id}>
-                          <MDuckImgWrap>
-                            {data.simg.map((simgdata, simgindex) => (
-                              <MDuckImg key={simgindex}>{simgdata}</MDuckImg>
-                            ))}
-                          </MDuckImgWrap>
-                          <MDuckNameWrap>
-                            {data.mbti.map((mbtidata, mbtiindex) => (
-                              <MDuckImg key={mbtiindex}>{mbtidata}</MDuckImg>
-                            ))}
-                          </MDuckNameWrap>
-                        </Con>
-                      ))} */}
-
-                      {/* <img
-                        src={IMG_URL + "/img/mbti_duck_img.png"}
-                        alt="mbti별 오리"
-                      /> */}
                     </MbtiDuckImg>
                   </ModalBody>
                   <ModalFooter>
