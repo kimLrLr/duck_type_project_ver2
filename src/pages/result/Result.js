@@ -168,40 +168,15 @@ export const Result = () => {
                       <Con>
                         <MDuckImgWrap>
                           {mbtiName.map((data, index) => (
-                            <Link to={data.img}>
-                              <MDuckImg key={index}>
+                            <MDuckImg key={index}>
+                              <Link to={"/result"} state={{ name: data }}>
                                 <img src={data.simg} alt="오리이미지" />
-                                <MDuckName key={index}>{data.mbti}</MDuckName>
-                              </MDuckImg>
-                            </Link>
+                                <MDuckName>{data.mbti}</MDuckName>
+                              </Link>
+                            </MDuckImg>
                           ))}
                         </MDuckImgWrap>
-
-                        {/* <MDuckNameWrap>
-                          {mbtiName.map((data, index) => (
-                            <MDuckName key={index}>{data.mbti}</MDuckName>
-                          ))}
-                        </MDuckNameWrap> */}
                       </Con>
-                      {/* {mbtiName.map((data) => (
-                        <Con key={data.id}>
-                          <MDuckImgWrap>
-                            {data.simg.map((simgdata, simgindex) => (
-                              <MDuckImg key={simgindex}>{simgdata}</MDuckImg>
-                            ))}
-                          </MDuckImgWrap>
-                          <MDuckNameWrap>
-                            {data.mbti.map((mbtidata, mbtiindex) => (
-                              <MDuckImg key={mbtiindex}>{mbtidata}</MDuckImg>
-                            ))}
-                          </MDuckNameWrap>
-                        </Con>
-                      ))} */}
-
-                      {/* <img
-                        src={IMG_URL + "/img/mbti_duck_img.png"}
-                        alt="mbti별 오리"
-                      /> */}
                     </MbtiDuckImg>
                   </ModalBody>
                   <ModalFooter>
