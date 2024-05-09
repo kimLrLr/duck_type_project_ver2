@@ -120,6 +120,7 @@ export const Result = () => {
   };
 
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem("refreshed")) {
@@ -131,16 +132,11 @@ export const Result = () => {
     return () => {
       window.removeEventListener("scroll", onClose);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const mbtiDuck = useLocation();
   const mbtiResult = mbtiDuck.state.name;
-
-  const navigate = useNavigate();
-
-  // const restartHandler = () => {
-  //   window.location.replace("/");
-  // };
 
   const restartHandler = () => {
     navigate("/");
