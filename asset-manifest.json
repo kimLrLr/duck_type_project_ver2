@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/duck_type_project_ver2/static/js/main.4136d387.js",
+    "main.js": "/duck_type_project_ver2/static/js/main.6f9b52d3.js",
     "index.html": "/duck_type_project_ver2/index.html",
-    "main.4136d387.js.map": "/duck_type_project_ver2/static/js/main.4136d387.js.map"
+    "main.6f9b52d3.js.map": "/duck_type_project_ver2/static/js/main.6f9b52d3.js.map"
   },
   "entrypoints": [
-    "static/js/main.4136d387.js"
+    "static/js/main.6f9b52d3.js"
   ]
 }
