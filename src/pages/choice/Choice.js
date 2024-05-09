@@ -71,7 +71,6 @@ const Answer = styled.button`
   font-weight: 600;
   border: 2px solid #ffd800;
   background-color: #fff;
-  /* background-color: #ffd800; */
   text-align: center;
   transition: 0.5s;
   box-sizing: border-box;
@@ -111,12 +110,10 @@ export const Choice = () => {
   useEffect(() => {
     const progress = (page / questions.length) * 100;
     setGauge(progress);
-    // console.log(progress);
   }, [page]);
   const handleAnswer = (type) => {
     const progress = ((page + 1) / questions.length) * 100;
     setGauge(progress);
-    // console.log(progress);
 
     let mbtiList = mbtiValue;
     for (let i = 0; i < mbtiList.length; i++) {
@@ -126,7 +123,6 @@ export const Choice = () => {
     }
 
     setMbtiValue(mbtiList);
-    // console.log(mbtiValue);
     setPage(page + 1);
   };
 
@@ -153,8 +149,6 @@ export const Choice = () => {
                 key={index}
                 style={{ display: page === index + 1 ? "flex" : "none" }}
               >
-                {/* {console.log(mbtiValue)} */}
-
                 <Qwrap>
                   {data.q.map((qdata, qindex) => (
                     <Question key={qindex}>{qdata}</Question>

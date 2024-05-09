@@ -6,4 +6,4 @@
 [x] 챠크라(chakra) <br/>
 [x] css reset <br/>
 [x] 스피너 (React Spinners) <br/>
-[] 배포(gh-page) <br />
+[x] 배포(gh-page) <br />
